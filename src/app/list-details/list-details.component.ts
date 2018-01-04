@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-list-details',
@@ -6,19 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-details.component.css']
 })
 export class ListDetailsComponent implements OnInit {
-  tasks: string[] = [];
+  tasks: Task[] = [];
   constructor() { }
 
   ngOnInit() {
   }
 
-  addTask(task: string) {
-    task.trim();
-    if (!task) { return; }
-    this.tasks.push(task);
+  addTask(name: string) {
+    name.trim();
+    if (!name) { return; }
+    this.tasks.push(new Task(name));
   }
 
-  deleteTask(task: string) {
+  deleteTask(task: Task) {
     let index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);
   }
