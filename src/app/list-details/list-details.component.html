@@ -1,3 +1,8 @@
-<p>
-  list-details works!
-</p>
+<div>
+  <input #taskName placeholder="I want to ...">
+  <button (click)="addTask(taskName.value); taskName.value=''">Add</button>
+</div>
+<hr>
+<ul>
+  <li *ngFor="let task of tasks;">{{ task }} <button (click)="deleteTask(task);">delete</button></li>
+</ul>
