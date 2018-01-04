@@ -23,4 +23,8 @@ export class ListDetailsComponent implements OnInit {
     let index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);
   }
+
+  markAsDone(task: Task) {
+    task.done = true;
+  }
 }

@@ -4,8 +4,9 @@
 </div>
 <hr>
 <ul>
-  <li *ngFor="let task of tasks;" [class.done]="task.done === true">
-    {{ task.name }}
+  <li *ngFor="let task of tasks;" >
+    <span [class.done]="task.done === true">{{ task.name }}</span>
+    <button (click)="markAsDone(task);">done</button>
     <button (click)="deleteTask(task);">delete</button>
   </li>
 </ul>
