@@ -8,6 +8,7 @@ import { Task } from '../task';
 })
 export class ListDetailsComponent implements OnInit {
   tasks: Task[] = [];
+  list: string = "My first list";
   constructor() { }
 
   ngOnInit() {
