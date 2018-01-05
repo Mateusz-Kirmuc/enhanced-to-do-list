@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { ListDetailsComponent } from './list-details/list-details.component';
-
+import {TaskService} from './task.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,7 @@ import { ListDetailsComponent } from './list-details/list-details.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
