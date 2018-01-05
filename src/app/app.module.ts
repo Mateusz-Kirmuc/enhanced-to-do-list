@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ListDetailsComponent } from './list-details/list-details.component';
 import {TaskService} from './task.service';
+import { ListsComponent } from './lists/lists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListDetailsComponent
+    ListDetailsComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule
