@@ -1,3 +1,11 @@
-<p>
-  lists works!
-</p>
+<h1>Yours to-do lists:</h1>
+<div>
+  <input #listName type="text" placeholder="New list name ...">
+  <button (click)="addList(listName.value); listName.value == ''">Add</button>
+</div>
+<ul *ngFor="let list of lists;">
+  <li>
+    <span>{{ list.name }}</span>
+    <button (click)="deleteList(list);">delete</button>
+  </li>
+</ul>
