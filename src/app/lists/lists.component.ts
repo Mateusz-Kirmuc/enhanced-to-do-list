@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../list';
+import { ListService } from '../list.service';
 
 @Component({
   selector: 'app-lists',
@@ -7,11 +8,16 @@ import { List } from '../list';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-  lists: List[] = [];
+  lists: List[];
 
-  constructor() { }
+  constructor(private listService: ListService) { }
 
   ngOnInit() {
+    this.getLists();
+  }
+
+  getLists() {
+    this.listService.getLists().subscribe(lists => this.lists = lists);
   }
 
   addList(listName: string) {
@@ -20,6 +26,7 @@ export class ListsComponent implements OnInit {
     let newList = new List(listName, []);
     this.lists.push(newList);
   }
+
   deleteList(list: List) {
     let index = this.lists.indexOf(list);
     this.lists.splice(index, 1);
