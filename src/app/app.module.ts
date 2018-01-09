@@ -6,12 +6,14 @@ import { ListDetailsComponent } from './list-details/list-details.component';
 import {ListService} from './list.service';
 import { ListsComponent } from './lists/lists.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListDetailsComponent,
-    ListsComponent
+    ListsComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
