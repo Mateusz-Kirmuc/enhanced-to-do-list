@@ -3,9 +3,9 @@
   <input #listName type="text" placeholder="New list name ...">
   <button (click)="addList(listName.value); listName.value = ''">Add</button>
 </div>
-<ul *ngFor="let list of lists;">
+<ul *ngFor="let list of lists;" >
   <li>
-    <span>{{ list.name }}</span>
+    <a routerLink="/list-details/{{list.id}}">{{ list.name }}</a>
     <button (click)="deleteList(list);">delete</button>
   </li>
 </ul>

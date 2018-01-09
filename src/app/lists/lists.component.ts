@@ -23,7 +23,7 @@ export class ListsComponent implements OnInit {
   addList(listName: string) {
     listName.trim();
     if (!listName) { return; }
-    let newList = new List(listName, []);
+    let newList = new List(1, listName, []);
     this.lists.push(newList);
   }
 

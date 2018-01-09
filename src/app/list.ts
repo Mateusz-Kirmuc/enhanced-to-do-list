@@ -2,9 +2,11 @@ import { Task } from './task';
 export class List {
   name: string;
   tasks: Task[];
+  id: number;
 
-  constructor(name: string, tasks: Task[]) {
+  constructor(id: number, name: string, tasks: Task[]) {
     this.name = name;
     this.tasks = tasks;
+    this.id = id;
   }
 }

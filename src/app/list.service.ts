@@ -11,5 +11,13 @@ export class ListService {
     return of(this.lists);
   }
 
+  getList(id: number): Observable<List> {
+    for (let list of this.lists) {
+      if (list.id == id) {
+        return of(list);
+      }
+    }
+  }
+
   constructor() { }
 }
