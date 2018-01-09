@@ -43,4 +43,7 @@ export class ListDetailsComponent implements OnInit {
   markAsDone(task: Task) {
     task.done = true;
   }
+  goBack() {
+    this.location.back();
+  }
 }
