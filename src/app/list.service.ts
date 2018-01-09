@@ -12,11 +12,7 @@ export class ListService {
   }
 
   getList(id: number): Observable<List> {
-    for (let list of this.lists) {
-      if (list.id == id) {
-        return of(list);
-      }
-    }
+    return of(this.lists.find(list => list.id === id))
   }
 
   constructor() { }
