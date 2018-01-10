@@ -20,11 +20,14 @@ export class ListsComponent implements OnInit {
     this.listService.getLists().subscribe(lists => this.lists = lists);
   }
 
-  addList(listName: string) {
-    listName.trim();
+  addList(listName: string): void {
+    listName = listName.trim();
     if (!listName) { return; }
-    let newList = new List(1, listName, []);
-    this.lists.push(newList);
+    let id = this.lists.length ? this.lists[this.lists.length - 1].id + 1 : 1;
+    this.listService.addList({ id: id, name: listName, tasks: [] } as List)
+      .subscribe(list => {
+        this.lists.push(list);
+      });
   }
 
   deleteList(list: List) {

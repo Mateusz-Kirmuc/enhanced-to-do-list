@@ -5,9 +5,12 @@ import { List } from './list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable()
 export class ListService {
-  lists: List[] = [];
   private listsUrl = 'api/lists';
 
   constructor(private http: HttpClient) { }
@@ -21,6 +24,13 @@ export class ListService {
     const url = `${this.listsUrl}/${id}`;
     return this.http.get<List>(url).pipe(
       catchError(this.handleError<List>(`getHero id=${id}`))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  addList(list: List): Observable<List> {
+    return this.http.post<List>(this.listsUrl, list, httpOptions).pipe(
+      catchError(this.handleError<List>('addList'))
     );
   }
 
