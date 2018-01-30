@@ -41,6 +41,13 @@ export class ListService {
     );
   }
 
+  deleteList(list: List): Observable<List> {
+    const id = list.id;
+    const url = `${this.listsUrl}/${id}`;
+    return this.http.delete<List>(url, httpOptions).pipe(
+      catchError(this.handleError<List>('deleteList')))
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.

@@ -31,7 +31,7 @@ export class ListsComponent implements OnInit {
   }
 
   deleteList(list: List) {
-    let index = this.lists.indexOf(list);
-    this.lists.splice(index, 1);
+    this.lists = this.lists.filter(l => l !== list);
+    this.listService.deleteList(list).subscribe();
   }
 }
