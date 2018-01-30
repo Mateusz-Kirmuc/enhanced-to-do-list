@@ -50,7 +50,13 @@ export class ListService {
 
   deleteTaskFromList(list: List): Observable<List> {
     return this.http.put(this.listsUrl, list, httpOptions).pipe(
-      catchError(this.handleError<any>('addTask'))
+      catchError(this.handleError<any>('deleteTask'))
+    );
+  }
+
+  markTaskFromListAsDone(list: List): Observable<List> {
+    return this.http.put(this.listsUrl, list, httpOptions).pipe(
+      catchError(this.handleError<any>('markTaskAsDone'))
     );
   }
   /**

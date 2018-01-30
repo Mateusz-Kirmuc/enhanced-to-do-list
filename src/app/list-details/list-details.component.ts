@@ -44,7 +44,9 @@ export class ListDetailsComponent implements OnInit {
   }
 
   markAsDone(task: Task) {
-    task.done = true;
+    let index = this.list.tasks.indexOf(task);
+    this.list.tasks[index].done = true;
+    this.listService.markTaskFromListAsDone(this.list).subscribe();
   }
   goBack() {
     this.location.back();
