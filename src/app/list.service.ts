@@ -4,6 +4,7 @@ import { of } from 'rxjs/observable/of';
 import { List } from './list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Task } from './task';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -31,6 +32,12 @@ export class ListService {
   addList(list: List): Observable<List> {
     return this.http.post<List>(this.listsUrl, list, httpOptions).pipe(
       catchError(this.handleError<List>('addList'))
+    );
+  }
+
+  addTaskToList(list: List): Observable<any> {
+    return this.http.put(this.listsUrl, list, httpOptions).pipe(
+      catchError(this.handleError<any>('addTask'))
     );
   }
 

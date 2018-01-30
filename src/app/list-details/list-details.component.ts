@@ -22,6 +22,7 @@ export class ListDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getList();
+
   }
 
   getList(): void {
@@ -29,10 +30,11 @@ export class ListDetailsComponent implements OnInit {
     this.listService.getList(id).subscribe(list => this.list = list);
   }
 
-  addTask(name: string) {
-    name.trim();
-    if (!name) { return; }
-    this.list.tasks.push(new Task(name));
+  addTask(taskName: string): void {
+    taskName.trim();
+    if (!taskName) { return; }
+    this.list.tasks.push(new Task(taskName));
+    this.listService.addTaskToList(this.list).subscribe();
   }
 
   deleteTask(task: Task) {
