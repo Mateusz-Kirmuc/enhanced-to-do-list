@@ -48,6 +48,11 @@ export class ListService {
       catchError(this.handleError<List>('deleteList')))
   }
 
+  deleteTaskFromList(list: List): Observable<List> {
+    return this.http.put(this.listsUrl, list, httpOptions).pipe(
+      catchError(this.handleError<any>('addTask'))
+    );
+  }
   /**
  * Handle Http operation that failed.
  * Let the app continue.

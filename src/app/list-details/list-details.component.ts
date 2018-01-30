@@ -37,9 +37,10 @@ export class ListDetailsComponent implements OnInit {
     this.listService.addTaskToList(this.list).subscribe();
   }
 
-  deleteTask(task: Task) {
+  deleteTask(task: Task): void {
     let index = this.list.tasks.indexOf(task);
     this.list.tasks.splice(index, 1);
+    this.listService.deleteTaskFromList(this.list).subscribe();
   }
 
   markAsDone(task: Task) {
