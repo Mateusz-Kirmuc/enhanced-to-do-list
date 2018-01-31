@@ -26,6 +26,7 @@ export class ListDetailsComponent implements OnInit {
   }
 
   getList(): void {
+    // get id of list from url
     const id = +this.route.snapshot.paramMap.get('id');
     this.listService.getList(id).subscribe(list => this.list = list);
   }
@@ -33,19 +34,24 @@ export class ListDetailsComponent implements OnInit {
   addTask(taskName: string): void {
     taskName.trim();
     if (!taskName) { return; }
+    // add new task to list
     this.list.tasks.push(new Task(taskName));
     this.listService.addTaskToList(this.list).subscribe();
   }
 
   deleteTask(task: Task): void {
+    // remove selected task from this.list
     let index = this.list.tasks.indexOf(task);
     this.list.tasks.splice(index, 1);
+
     this.listService.deleteTaskFromList(this.list).subscribe();
   }
 
   markAsDone(task: Task) {
+    // set 'done' parameter of task as true
     let index = this.list.tasks.indexOf(task);
     this.list.tasks[index].done = true;
+
     this.listService.markTaskFromListAsDone(this.list).subscribe();
   }
   goBack() {

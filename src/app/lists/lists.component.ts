@@ -23,6 +23,7 @@ export class ListsComponent implements OnInit {
   addList(listName: string): void {
     listName = listName.trim();
     if (!listName) { return; }
+    // define id of new list
     let id = this.lists.length ? this.lists[this.lists.length - 1].id + 1 : 1;
     this.listService.addList({ id: id, name: listName, tasks: [] } as List)
       .subscribe(list => {
@@ -31,6 +32,7 @@ export class ListsComponent implements OnInit {
   }
 
   deleteList(list: List) {
+    // first, remove selected list from this.lists
     this.lists = this.lists.filter(l => l !== list);
     this.listService.deleteList(list).subscribe();
   }
