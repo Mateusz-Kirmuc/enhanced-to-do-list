@@ -1,15 +1,15 @@
-<div *ngIf="list">
-  <h1>'{{list.name}}' list</h1>
-  <button (click)="goBack()">Go back</button>
-  <div>
-    <input #taskName placeholder="I want to ...">
-    <button (click)="addTask(taskName.value); taskName.value=''">Add</button>
+<!-- <div *ngIf="list"> -->
+  <h1 class="header">'{{list.name}}' list</h1>
+  <button (click)="goBack()" class="btn btn-primary">Go back</button>
+  <div class="form-inline">
+    <input #taskName placeholder="I want to ..." class="form-control">
+    <button (click)="addTask(taskName.value); taskName.value=''" class="btn btn-success">Add</button>
   </div>
-  <ul>
-    <li *ngFor="let task of list.tasks;" >
-      <span [class.done]="task.done === true">{{ task.name }}</span>
-      <button (click)="markAsDone(task);">done</button>
-      <button (click)="deleteTask(task);">delete</button>
+  <ul class="tasks">
+    <li *ngFor="let task of list.tasks;"  class="task">
+      <span [class.done]="task.done === true" class="task-content">{{ task.name }}</span>
+      <button (click)="markAsDone(task); " class="btn btn-secondary">done</button>
+      <button (click)="deleteTask(task);" class="btn btn-danger">delete</button>
     </li>
   </ul>
-</div>
+<!-- </div> -->

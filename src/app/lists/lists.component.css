@@ -1,0 +1,38 @@
+.header {
+  margin-bottom: 20px;
+}
+
+.form-inline {
+  margin-bottom: 20px;
+}
+
+.btn-danger {
+  margin-left: 20px;
+}
+
+.form-control {
+  margin-right: 20px;
+}
+
+.lists {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list {
+  margin-bottom: 20px;
+}
+
+.list-link {
+  display: inline-block;
+  max-width: 400px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 576px) {
+  .list-link {
+    max-width: 100px;
+  }
+}
